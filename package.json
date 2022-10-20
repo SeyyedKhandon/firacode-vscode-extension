@@ -1,0 +1,77 @@
+{
+  "name": "firacode",
+  "displayName": "FiraCode",
+  "description": "FiraCode font pack - Free monospaced font with programming ligatures vscode extension",
+  "version": "1.0.0",
+  "publisher": "SeyyedKhandon",
+  "author": "SeyyedMahdi Hassanpour",
+  "license": "MIT",
+  "galleryBanner": {
+    "color": "#47B784",
+    "theme": "dark"
+  },
+  "icon": "assets/firacode.jpg",
+  "activationEvents": [
+    "onCommand:firacode.install"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "firacode.install",
+        "title": "Install FiraCode Font pack"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "repository": {
+    "url": "https://github.com/SeyyedKhandon/firacode-vscode-extension.git"
+  },
+  "homepage": "https://github.com/SeyyedKhandon/firacode-vscode-extension.git",
+  "bugs": {
+    "url": "https://github.com/SeyyedKhandon/firacode-vscode-extension.git/issues"
+  },
+  "keywords": [
+    "Extension for FiraCode font pack",
+    "Professional fonts for programming"
+  ],
+  "categories": [
+    "Extension Packs",
+    "Language Packs",
+    "Programming Languages",
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.72.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "eslint": "^8.24.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.8.4",
+    "@vscode/test-electron": "^2.1.5",
+    "@types/follow-redirects": "^1.13.0",
+    "follow-redirects": "^1.13.3",
+    "fs": "^0.0.1-security",
+    "inly": "^4.0.8",
+    "path": "^0.12.7",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "get-system-fonts": "^2.0.2",
+    "installfont": "^0.0.12"
+  }
+}

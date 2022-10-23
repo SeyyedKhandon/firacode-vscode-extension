@@ -1,7 +1,6 @@
 import * as vscode from "vscode";
 import { defaultSettings, GeneralObject } from "./defaultSettings";
-// import getSystemFonts from "get-system-fonts";
-const installfont = require("installfont");
+import path = require("path");
 const showDialog = vscode.window.showInformationMessage;
 
 const updateUserSettings = async (settings: GeneralObject) => {
@@ -11,24 +10,22 @@ const updateUserSettings = async (settings: GeneralObject) => {
       .update(key, value, vscode.ConfigurationTarget.Global);
   });
 };
-const installFiraCodeFont = async (address: string) => {
-  installfont(address, function (err: any) {
-    if (err) {
-      showDialog(err.toString());
-      require("child_process").exec(`start "" ${address}`);
-      return showDialog("Reload VSCODE after manually installing fonts!");
-    }
-    showDialog(
-      "FiraCode fonts have been successfully installed. VScode must be closed and reopened in order to take effect!"
-    );
-  });
-};
-// const isFiraCodeInstalled = async () => {
-//   const systemFonts = (await getSystemFonts()).filter((font) =>
-//     font.toLowerCase().includes("firacode")
-//   );
-//   return !!systemFonts.length;
-// };
+
+function dirOpen(dirPath: string) {
+  let command = "";
+  switch (process.platform) {
+    case "darwin":
+      command = "open";
+      break;
+    case "win32":
+      command = "explorer";
+      break;
+    default:
+      command = "xdg-open";
+      break;
+  }
+  return require("child_process").exec(`${command} ${dirPath}`);
+}
 
 export async function activate(context: vscode.ExtensionContext) {
   console.log('Congratulations, your extension "FiraCode Font" is now active!');
@@ -36,9 +33,13 @@ export async function activate(context: vscode.ExtensionContext) {
     "firacode.install",
     async () => {
       await updateUserSettings(defaultSettings);
-      showDialog("FiraCode Config has been updated.");
-      // if (!(await isFiraCodeInstalled()))
-      installFiraCodeFont(context.extensionPath + "/firaCodeFont");
+      showDialog("The FiraCode font configurations have been updated.");
+      const fontAddress = path.resolve(context.extensionPath, "firaCodeFont");
+      showDialog(
+        `The FiraCode Font directory will open. Please install them if you do not already have them. ${fontAddress}`
+      );
+      dirOpen(fontAddress);
+      showDialog("Reload VSCODE after manually installing fonts!");
     }
   );
   context.subscriptions.push(disposable);

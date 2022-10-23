@@ -2,7 +2,7 @@
   "name": "firacode",
   "displayName": "FiraCode font - Professional Font for Developers",
   "description": "FiraCode font pack - Free monospaced font with programming ligatures vscode extension",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "publisher": "SeyyedKhandon",
   "author": "SeyyedMahdi Hassanpour",
   "license": "MIT",
@@ -55,26 +55,23 @@
     "vscode": "^1.72.0"
   },
   "devDependencies": {
-    "@types/vscode": "^1.72.0",
+    "@types/follow-redirects": "^1.13.0",
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.0",
     "@types/node": "16.x",
+    "@types/vscode": "^1.72.0",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
-    "eslint": "^8.24.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.0.0",
-    "typescript": "^4.8.4",
     "@vscode/test-electron": "^2.1.5",
-    "@types/follow-redirects": "^1.13.0",
+    "eslint": "^8.24.0",
     "follow-redirects": "^1.13.3",
     "fs": "^0.0.1-security",
+    "glob": "^8.0.3",
     "inly": "^4.0.8",
+    "mocha": "^10.0.0",
     "path": "^0.12.7",
+    "typescript": "^4.8.4",
     "vscode-test": "^1.5.0"
   },
-  "dependencies": {
-    "get-system-fonts": "^2.0.2",
-    "installfont": "^0.0.12"
-  }
+  "dependencies": {}
 }

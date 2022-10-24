@@ -10,13 +10,24 @@ Free monospaced font with programming ligatures vscode extension
 
 ## 1-Click Setup:
 
-1. Press `ctrl+shift+p`
-2. Type `firacode` or `Install FiraCode Font pack `
-3. Click on `Install FiraCode Font pack` to automatically add configs to your `VSCode` and install `FiraCode`
+After Installation you will see this prompt:
+<img src="./assets/firacode-prompt.jpg" width="400" />
+
+- Just click `Yes` in the prompt to Activate it (The font configurations will be set).
+- **Font Directory will open**, and once you have manually installed fonts, **restart VSCODE**.
+
+**Note:** Part 2 is because of `OS` limitations, the fonts must be installed manually.
+
+### Available Commands
+
+- `Activate FiraCode Font pack`
+- `Deactivate FiraCode Font`
+
+**Note:** to run commands, press `ctrl+shift+p` to open the command palette, and then type each one and click on it.
 
 <details>
 <summary>
-<i>Click to see what configs this plugin will use</i>
+<i>Here are the configurations this plugin will use</i>
 </summary>
 
 ```json

@@ -2,7 +2,7 @@
   "name": "firacode",
   "displayName": "FiraCode font - Professional Font for Developers",
   "description": "FiraCode font pack - Free monospaced font with programming ligatures vscode extension",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "publisher": "SeyyedKhandon",
   "author": "SeyyedMahdi Hassanpour",
   "license": "MIT",
@@ -12,14 +12,19 @@
   },
   "icon": "assets/firacode.jpg",
   "activationEvents": [
-    "onCommand:firacode.install"
+    "onStartupFinished",
+    "onCommand:firacode.activate"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "firacode.install",
-        "title": "Install FiraCode Font pack"
+        "command": "firacode.activate",
+        "title": "Activate FiraCode Font pack"
+      },
+      {
+        "command": "firacode.deactivate",
+        "title": "Deactivate FiraCode Font"
       }
     ]
   },

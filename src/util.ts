@@ -1,6 +1,7 @@
-import path = require("path");
 import * as vscode from "vscode";
+import path = require("path");
 import { defaultSettings, GeneralObject } from "./defaultSettings";
+
 const showDialog = vscode.window.showInformationMessage;
 
 const firacodePath = (context: vscode.ExtensionContext) =>
@@ -37,8 +38,9 @@ export function firaCodeActivation(context: vscode.ExtensionContext) {
   const firacodeAddress = firacodePath(context);
   updateUserSettings(defaultSettings);
   dirOpen(firacodeAddress);
+  showDialog(`${context.extension.packageJSON.displayName} is activated!`);
   showDialog(
-    `Important Note - Font configurations have been updated, Font Directory will open, and once you have manually installed fonts, restart VSCODE. ${firacodeAddress}`
+    `Important Note - Don't forget to install fonts! Font Directory will open, once you have manually installed fonts, restart VSCODE - ${firacodeAddress}`
   );
 }
 
@@ -56,12 +58,12 @@ export function firstTimeActivation(context: vscode.ExtensionContext) {
   const previousVersion = context.globalState.get(context.extension.id);
   if (previousVersion === version) return;
 
-  firaCodeActivationPrompt(context);
+  firaCodeActivation(context);
   context.globalState.update(context.extension.id, version);
 }
 
 export function deactivateFiraCode(context: vscode.ExtensionContext) {
   // context.globalState.update(context.extension.id, undefined);
   updateUserSettings(defaultSettings, true);
-  showDialog("FiraCode Font is deactivated!");
+  showDialog(`${context.extension.packageJSON.displayName} is deactivated!`);
 }

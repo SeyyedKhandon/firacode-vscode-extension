@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import path = require("path");
 import {
   deactivateFiraCode,
   firaCodeActivation,

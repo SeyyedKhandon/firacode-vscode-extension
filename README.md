@@ -13,19 +13,13 @@
 
 Free monospaced font with programming ligatures vscode extension
 
-## 1-Click Setup:
-
-After Installation you will see this prompt:
-
-<img src="./assets/firacode-prompt.jpg" width="400" />
-
-- Just click `Yes` in the prompt to Activate it (The font configurations will be set).
+#### Final Step
 
 <img src="./assets/firacode-font-directory.jpg" width="400" />
 
-- **Font Directory will open**, and once you have manually installed fonts, **restart VSCODE**.
+When the **Font Directory** appears, install fonts if you haven't already, and restart VSCODE once you have.
 
-**Note:** Part 2 is because of `OS` limitations, the fonts must be installed manually.
+**Note:** this is because of `OS` limitations, the fonts must be installed manually.
 
 ### Available Commands
 

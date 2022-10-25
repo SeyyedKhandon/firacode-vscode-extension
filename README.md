@@ -1,19 +1,28 @@
+### For Freedom
+
+<a href="https://github.com/jadijadi">
+  <img src="./assets/jadi.jpg" width="150px" alt="jadi" title="jadi"/>
+</a>
+<br/>
+
+# FiraCode Font Pack
+
 <a href="https://marketplace.visualstudio.com/items?itemName=SeyyedKhandon.firacode">
   <img src="./assets/firacode.jpg" width="150px"/>
 </a>
 
-# FiraCode Font Pack
-
 Free monospaced font with programming ligatures vscode extension
-
-<img src="./assets/firacode-pattern.jpg" width="150">
 
 ## 1-Click Setup:
 
 After Installation you will see this prompt:
+
 <img src="./assets/firacode-prompt.jpg" width="400" />
 
 - Just click `Yes` in the prompt to Activate it (The font configurations will be set).
+
+<img src="./assets/firacode-font-directory.jpg" width="400" />
+
 - **Font Directory will open**, and once you have manually installed fonts, **restart VSCODE**.
 
 **Note:** Part 2 is because of `OS` limitations, the fonts must be installed manually.
@@ -41,7 +50,7 @@ After Installation you will see this prompt:
 
 ## How does it look with FiraCode font?
 
- <img src="./assets/progress.gif" alt="firacode progress" width="200px" />
+<img src="./assets/firacode-pattern.jpg" width="150"> <img src="./assets/progress.gif" alt="firacode progress" width="200px" />
 
  <br/>
  

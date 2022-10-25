@@ -1,6 +1,10 @@
+import path = require("path");
 import * as vscode from "vscode";
 import { defaultSettings, GeneralObject } from "./defaultSettings";
 const showDialog = vscode.window.showInformationMessage;
+
+const firacodePath = (context: vscode.ExtensionContext) =>
+  path.resolve(context.extensionPath, "firaCodeFont");
 
 const updateUserSettings = (settings: GeneralObject, remove = false) =>
   Object.entries(settings).forEach(([key, value]) =>
@@ -29,38 +33,35 @@ export function dirOpen(dirPath: string) {
   return require("child_process").exec(`${command} ${dirPath}`);
 }
 
-export function firaCodeActivation(fontAddress: string) {
+export function firaCodeActivation(context: vscode.ExtensionContext) {
+  const firacodeAddress = firacodePath(context);
   updateUserSettings(defaultSettings);
-  dirOpen(fontAddress);
+  dirOpen(firacodeAddress);
   showDialog(
-    `Important Note - Font configurations have been updated. Font Directory will open, and once you have manually installed fonts, restart VSCODE. ${fontAddress}`
+    `Important Note - Font configurations have been updated, Font Directory will open, and once you have manually installed fonts, restart VSCODE. ${firacodeAddress}`
   );
 }
 
-export const firaCodeActivationPrompt = (fontAddress: string) =>
+export const firaCodeActivationPrompt = (context: vscode.ExtensionContext) =>
   showDialog("Activate FiraCode?", "Yes", "No").then((value) =>
     value === "Yes"
-      ? firaCodeActivation(fontAddress)
+      ? firaCodeActivation(context)
       : (showDialog(
           "You can activate FiraCode later by running 'firacode' in command palette."
         ) as any)
   );
 
-export function firstTimeActivation(
-  context: vscode.ExtensionContext,
-  fontAddress: string
-) {
-  const firacodeExt = vscode.extensions.getExtension("SeyyedKhandon.firacode");
-  const version = firacodeExt?.packageJSON.version ?? "1.0.0";
-  const previousVersion = context.globalState.get("FiraCodeVersion");
+export function firstTimeActivation(context: vscode.ExtensionContext) {
+  const version = context.extension.packageJSON.version ?? "1.0.0";
+  const previousVersion = context.globalState.get(context.extension.id);
   if (previousVersion === version) return;
 
-  firaCodeActivationPrompt(fontAddress);
-  context.globalState.update("FiraCodeVersion", version);
+  firaCodeActivationPrompt(context);
+  context.globalState.update(context.extension.id, version);
 }
 
 export function deactivateFiraCode(context: vscode.ExtensionContext) {
-  context.globalState.update("FiraCodeVersion", "");
+  // context.globalState.update(context.extension.id, undefined);
   updateUserSettings(defaultSettings, true);
   showDialog("FiraCode Font is deactivated!");
 }

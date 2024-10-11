@@ -6,10 +6,6 @@ import {
 } from "./util";
 
 export async function activate(context: vscode.ExtensionContext) {
-  console.log(
-    `Congratulations, your extension "${context.extension.packageJSON.displayName}" installed!`
-  );
-
   firstTimeActivation(context);
 
   let activateCommand = vscode.commands.registerCommand(

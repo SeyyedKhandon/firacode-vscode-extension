@@ -1,9 +1,4 @@
-### For Freedom
-
-<a href="https://github.com/jadijadi">
-  <img src="./assets/jadi.jpg" width="150px" alt="jadi" title="jadi"/>
-</a>
-<br/>
+**Hit the Github ⭐ if you liked it!**
 
 # FiraCode Font Pack
 
